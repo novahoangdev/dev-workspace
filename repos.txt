@@ -1,0 +1,5 @@
+# Format: <target-path> <git-url>
+# Example:
+# career/portfolio git@github.com:YOUR_USERNAME/portfolio.git
+# career/cv-builder git@github.com:YOUR_USERNAME/cv-builder.git
+# projects/my-project git@github.com:YOUR_USERNAME/my-project.git
