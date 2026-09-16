@@ -1,45 +1,142 @@
-# Personal Development Workspace
+# AI Development Workspace
 
-Private control repository for a personal multi-repository coding workspace.
+An open-source, multi-repository workspace for **AI-assisted / vibe coding** with portable rules, reusable Agent Skills, explicit safety boundaries, project templates, and verification workflows.
 
-## Structure
+The goal is not to install as many agents as possible. It is to give Codex, Claude Code, GitHub Copilot, and similar coding agents enough structure to work consistently without turning a personal workspace into a heavy framework.
+
+## What this repository demonstrates
+
+- a clear separation between **instructions**, **permissions**, **skills**, and **project documentation**;
+- reusable `SKILL.md` workflows for planning, coding review, testing, frontend quality, performance, SEO, CV/portfolio work, and PDF verification;
+- an independent tester role that reports findings without silently modifying code;
+- safe Git/remote-operation boundaries: edit/test freely, commit only with approval, push separately, destructive/production actions explicitly;
+- independent child repositories for portfolio, interactive WebGL work, machine setup guides, and pet projects;
+- intentionally minimal automation: no hooks by default.
+
+## Architecture
+
 ```text
-personal-workspace/
-├── AGENTS.md
-├── CLAUDE.md
-├── WORKFLOW.md
-├── README.md
-├── SETUP-CHECKLIST.md
-├── .gitignore
-├── repos.txt
-├── context/
+AI Development Workspace
+├── AGENTS.md                 # always-on agent principles
+├── WORKFLOW.md               # Git / scripts / remote / safety permissions
+├── CLAUDE.md                 # Claude adapter
+├── SKILLS.md                 # skill inventory and usage
+├── HOOKS.md                  # hook policy and rationale
+├── .agents/
+│   ├── skills/               # canonical shared Agent Skills
+│   └── agents/tester.md      # independent QA role
+├── context/                  # public-safe templates/defaults
+├── docs/architecture.md
 ├── scripts/
-├── templates/repo/
-├── career/       # independent repos, ignored by root Git
-├── projects/     # independent repos, ignored by root Git
-└── experiments/  # independent repos, ignored by root Git
+├── templates/
+│   ├── repo/                 # starter files for maintained child repos
+│   └── project-skills/       # examples for specialized child repos
+├── career/                   # independent repos; ignored by root Git
+├── projects/                 # independent repos; ignored by root Git
+└── experiments/              # independent repos; ignored by root Git
 ```
 
-## Mental model
-- `AGENTS.md`: how agents should work
-- `WORKFLOW.md`: what agents may execute without approval
-- `CLAUDE.md`: Claude adapter importing shared instructions
-- `context/`: what agents should know about you/preferences
-- child `<repo>/docs/`: what developers should know about that project
-- `DECISIONS.md`: durable project-level decisions
+See [`docs/architecture.md`](docs/architecture.md) for the design rationale.
 
-Recommended: keep this workspace repo private. Individual portfolio/CV/pet-project repos may be public or private independently.
+## Shared skills
 
-## Restore on a new machine
-1. Clone this workspace.
-2. Edit/populate `repos.txt`.
-3. Run:
+### Development
+
+`feature-planning`, `project-bootstrap`, `code-review`, `test-strategy`, `user-flow-testing`, `release-check`
+
+### Web
+
+`frontend-quality`, `ux-ui-review`, `web-performance`, `seo-audit`
+
+### Career / portfolio
+
+`career-content`, `cv-review`, `cv-web-design`, `pdf-quality`
+
+Specialized WebGL and macOS setup skill examples live under `templates/project-skills/` so they can be copied into the relevant child repository instead of polluting every project.
+
+## Quick start
+
 ```bash
-chmod +x scripts/bootstrap.sh
+git clone <YOUR_REPOSITORY_URL> dev-workspace
+cd dev-workspace
+
+cp repos.example.txt repos.txt
+# Edit repos.txt with the repositories you actually want on this machine.
+
+chmod +x scripts/bootstrap.sh scripts/setup-agent-skills.sh
 ./scripts/bootstrap.sh
+./scripts/setup-agent-skills.sh
 ```
 
-## New project
-Copy `templates/repo/` into the new project, replace relevant TODOs, remove irrelevant template sections, initialize its independent Git repo, then add its clone URL to root `repos.txt`.
+`repos.txt` is local-only and ignored by Git, so your machine-specific/private repository list is not accidentally published.
 
-Do not use the root repository to track child repository source code.
+To expose shared skills at user level where supported:
+
+```bash
+./scripts/setup-agent-skills.sh --global
+```
+
+## Using the skills
+
+You can ask naturally:
+
+```text
+Plan this feature first. Do not implement yet.
+Review the current diff before I commit.
+Test the completed flow like a real user.
+Audit this page for UX, performance, and SEO before release.
+```
+
+Or name a skill explicitly:
+
+```text
+Use feature-planning for this change. Do not implement yet.
+Use user-flow-testing to verify the finished flow.
+Use web-performance and seo-audit before release.
+```
+
+Skills are a toolbox, not a mandatory pipeline. A typo does not need fifteen review stages.
+
+## Git and safety model
+
+```text
+read / inspect / requested edits / tests / lint / build  → allowed
+commit                                                   → explicit approval
+push                                                     → separate explicit approval
+destructive / production / remote shared-state changes  → explicit approval
+```
+
+See `WORKFLOW.md` for the complete policy.
+
+## Child repositories
+
+The root repository intentionally does **not** track child-project source code. Each project gets its own Git history, README, issues, releases, and visibility.
+
+Typical layout:
+
+```text
+career/portfolio/               # independent repo
+career/interactive-workspace/   # independent repo
+projects/mac-dev-setup/         # independent repo
+experiments/...                 # independent repos/prototypes
+```
+
+Add clone targets to your local `repos.txt`; use `repos.example.txt` as the public template.
+
+## Public vs private context
+
+This repository is designed to be public. Keep only public-safe templates/defaults under `context/`. Put personal/private agent context in `context/*.local.md` or `context/private/`; both are ignored.
+
+Never commit real `.env` files, tokens, private keys, credentials, or confidential employer/client information.
+
+## Hooks
+
+No hooks are enabled by default. This is intentional. Hooks add hidden behavior and differ across agent ecosystems. Add one only after repeated usage proves that a safe, fast, deterministic action genuinely needs to run automatically. See `HOOKS.md`.
+
+## Contributing
+
+Contributions are welcome. See `CONTRIBUTING.md` for scope and safety expectations.
+
+## License
+
+MIT — see `LICENSE`.

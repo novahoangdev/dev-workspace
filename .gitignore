@@ -1,26 +1,41 @@
-# OS/editor
+# OS / editors
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
 
-# Secrets/local env
+# Secrets / local environment
 .env
 .env.*
 !.env.example
 *.pem
 *.key
+*.p12
+*.pfx
+*.jks
 
-# Temporary
+# Private/local workspace context
+context/*.local.md
+context/private/
+repos.txt
+
+# Temporary / generated
 *.log
 *.tmp
 .cache/
 tmp/
+dist/
+build/
+coverage/
+node_modules/
 
-# Independent child repositories
+# Independent child repositories: root Git tracks only placeholders.
 career/*
 !career/.gitkeep
 projects/*
 !projects/.gitkeep
 experiments/*
 !experiments/.gitkeep
+
+# Generated agent adapters
+.claude/skills/

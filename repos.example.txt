@@ -1,0 +1,10 @@
+# One repository per line:
+# <destination-relative-to-workspace> <git-clone-url>
+#
+# Copy this file to repos.txt for your local machine:
+#   cp repos.example.txt repos.txt
+#
+# Example public repositories:
+# career/portfolio https://github.com/YOUR_USERNAME/portfolio.git
+# career/interactive-workspace https://github.com/YOUR_USERNAME/interactive-workspace.git
+# projects/mac-dev-setup https://github.com/YOUR_USERNAME/mac-dev-setup.git

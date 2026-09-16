@@ -1,9 +1,16 @@
-# Workspace Context
+# Context
 
-Reusable context for agents across projects. This is not project documentation.
+This directory contains **public-safe templates and defaults** that agents may use across projects.
 
-Use it for confirmed career facts, writing preferences, design preferences, and other durable cross-project context. Project-specific docs belong inside that project's `docs/`.
+Files committed to this open-source repository must not contain private notes, secrets, unpublished employer information, addresses, account details, or other sensitive personal data.
 
-Keep this workspace private by default. A public CV/portfolio is curated output; raw context may contain internal notes. Never store credentials or secrets here.
+For local-only context, use either:
 
-Keep facts separate from ideas, mark uncertainty, prefer durable information, and remove stale contradictions.
+```text
+context/*.local.md
+context/private/
+```
+
+Both are ignored by Git.
+
+`career.md`, `writing-style.md`, and `design-preferences.md` are templates/defaults. Customize public-safe values directly, or keep personal details in ignored local files.

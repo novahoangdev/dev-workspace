@@ -1,7 +1,7 @@
 # Workspace Agent Instructions
 
 ## Purpose
-This is a personal multi-repository development workspace for career projects, maintained pet projects, and experiments. Each child project is an independent Git repository unless explicitly stated otherwise.
+This is an open-source multi-repository AI-assisted development workspace for career projects, maintained pet projects, and experiments. Each child project is an independent Git repository unless explicitly stated otherwise.
 
 ## Instruction priority
 1. Follow the user's current request.
@@ -57,7 +57,7 @@ Use:
 - `WORKFLOW.md` — operational permissions/safety
 - `DECISIONS.md` — durable project decisions
 - `docs/` — project documentation
-- workspace `context/` — reusable personal context
+- workspace `context/` — public-safe reusable context/templates; private local context stays ignored
 
 Do not create documentation for temporary implementation notes.
 
@@ -67,5 +67,45 @@ Respect decisions already recorded in `DECISIONS.md` unless the user asks to rev
 ## Personal context
 Workspace `context/` files are source material, not automatically publishable copy. Preserve factual accuracy. Never invent achievements, metrics, titles, dates, credentials, or publish private notes without explicit instruction.
 
+
+## Shared skills
+
+Reusable task workflows live under `.agents/skills/`. The canonical inventory is documented in `SKILLS.md`. Use only skills relevant to the task instead of loading every workflow by default.
+
+Skills never override `WORKFLOW.md` permissions. A skill cannot grant itself permission to commit, push, deploy, run destructive commands, or modify remote/shared state.
+
 ## Communication
 Be concise and concrete. On completion, summarize material changes, verification actually performed, and relevant unresolved risks. Avoid unnecessary implementation narration.
+
+
+## Decision priority
+
+When instructions or trade-offs conflict, prioritize:
+
+1. Correctness
+2. Explicit user requirements
+3. Safety and security
+4. Data integrity
+5. Maintainability
+6. Accessibility and user experience
+7. Performance
+8. Simplicity
+9. Fewer lines of code
+
+Simplicity must never override correctness, explicit requirements, security, accessibility, or data integrity.
+
+## Verification
+
+Do not claim that something works unless it was verified. Prefer running tests over assuming they pass, opening the application over assuming UI behavior, inspecting generated artifacts over assuming generation succeeded, measuring performance over guessing, and reproducing bugs before fixing them when practical. If verification could not be performed, state that explicitly.
+
+## Planning boundary
+
+For substantial work, planning and implementation are separate when the user asks for a plan/spec first. `feature-planning` does not authorize implementation. Small low-risk tasks do not require planning ceremony.
+
+## Skill discipline
+
+Do not create or install a skill merely because a task can be described as one. Create a skill only when the workflow is repeated, specialized, multi-step, and meaningfully improved by reusable instructions.
+
+## Hook discipline
+
+Keep this workspace hook-free by default. Add a hook only for a safe, fast, deterministic repeated check that a normal skill/script cannot adequately cover. Hooks must never silently commit, push, deploy, delete data, overwrite user configuration, or run destructive commands.
