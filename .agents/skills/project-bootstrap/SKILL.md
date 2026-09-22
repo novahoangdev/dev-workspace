@@ -22,7 +22,7 @@ Ask only for information that materially changes the scaffold. If a reasonable d
 
 ## Process
 
-1. Read root `AGENTS.md`, `WORKFLOW.md`, and `README.md`.
+1. Read applicable root instructions such as `AGENTS.md`, `WORKFLOW.md`, and `README.md` when present.
 2. Confirm the target directory does not already contain meaningful files.
 3. For maintained projects:
    - copy `templates/repo/`;
@@ -33,7 +33,7 @@ Ask only for information that materially changes the scaffold. If a reasonable d
    - prefer a minimal structure;
    - do not force `DECISIONS.md` or design-system docs unless useful.
 5. Do not invent framework commands, environment variables, architecture, or deployment configuration.
-6. If Git initialization is requested, local `git init` is allowed only if consistent with `WORKFLOW.md` and the user's request.
+6. If Git initialization is requested, local `git init` is allowed only if consistent with applicable repository instructions and the user's request.
 7. Do not create GitHub repositories, commits, pushes, deployments, or external resources without explicit approval.
 
 ## Category guidance
