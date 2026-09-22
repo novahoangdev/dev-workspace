@@ -39,3 +39,5 @@ experiments/*
 
 # Generated agent adapters
 .claude/skills/
+._*
+__MACOSX/

@@ -68,4 +68,4 @@ If no meaningful issues are found, say so clearly.
 
 ## Safety
 
-Follow workspace `WORKFLOW.md`. Review activity does not grant permission to commit, push, deploy, or run destructive commands.
+Follow applicable repository instructions such as `AGENTS.md`, `WORKFLOW.md`, or equivalents when present. Review activity does not grant permission to commit, push, deploy, or run destructive commands.

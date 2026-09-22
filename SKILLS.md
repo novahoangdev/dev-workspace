@@ -1,28 +1,31 @@
 # Agent Skills Guide
 
-`.agents/skills/` is the canonical source for reusable shared skills. Keep always-on rules in `AGENTS.md`, permissions in `WORKFLOW.md`, and durable project facts/decisions in project documentation.
+`.agents/skills/` is the canonical source for reusable specialized workflows. Skills are opt-in; they are not a mandatory routing layer.
+
+## Routing rule
+
+Default to **zero skills**. Do not inspect this catalog for ordinary implementation tasks. Use one skill only when its specialized workflow materially helps. Do not chain skills merely because they are related.
 
 ## Shared skills
 
 ### General development
-- `feature-planning`
-- `project-bootstrap`
-- `code-review`
-- `test-strategy`
-- `user-flow-testing`
-- `release-check`
+- `feature-planning` — explicit planning or sufficiently complex work that needs a plan before implementation
+- `project-bootstrap` — creating/bootstraping a project or repository
+- `code-review` — explicit code/diff review
+- `test-strategy` — explicit test strategy, coverage, or non-trivial testing design
+- `user-flow-testing` — explicit end-to-end/user-journey verification
+- `release-check` — explicit release-readiness verification
 
 ### Web
-- `frontend-quality`
-- `ux-ui-review`
-- `web-performance`
-- `seo-audit`
+- `frontend-review` — explicit UI/UX/accessibility review
+- `web-performance` — performance investigation or optimization
+- `seo-audit` — SEO review/audit
 
 ### Career / portfolio
-- `career-content`
-- `cv-review`
-- `cv-web-design`
-- `pdf-quality`
+- `career-content` — factual career/profile content work
+- `cv-review` — CV review
+- `cv-web-design` — CV/portfolio-specific information and visual design
+- `pdf-quality` — PDF output verification
 
 ## Project-specific examples
 
@@ -31,24 +34,12 @@ Specialized examples live under `templates/project-skills/`:
 - `interactive-webgl/`: `webgl-performance`, `3d-interaction-quality`
 - `mac-dev-setup/`: `shell-script-review`, `mac-setup-safety`
 
-Copy only the relevant skill folders into the child repository's `.agents/skills/` directory. Do not install them globally unless they are genuinely useful across projects.
+Copy only a genuinely needed project-specific skill into that child repository. Do not install it globally by default.
 
 ## Tester role
 
-`.agents/agents/tester.md` defines an independent read/test/report role. Tool-specific registration may differ; the file is the canonical role specification.
-
-## Usage
-
-Ask naturally or name a skill explicitly:
-
-```text
-Use feature-planning for this feature. Do not implement yet.
-Use user-flow-testing to verify the finished flow.
-Use web-performance and seo-audit before release.
-```
-
-Do not run every skill for every task. Use only what materially helps.
+`.agents/agents/tester.md` defines an independent read/test/report role. Use it only when an independent tester role is explicitly useful.
 
 ## Skill discipline
 
-Create a new skill only when a workflow is repeated, specialized, multi-step, and meaningfully improved by reusable instructions. One-off requests belong in prompts; project-specific facts belong in project docs.
+Create a skill only for a repeated, specialized, multi-step workflow that is meaningfully improved by reusable instructions. One-off requests belong in prompts; project facts belong in project docs.

@@ -63,4 +63,4 @@ It does not authorize:
 - production migration;
 - other remote/shared-state changes.
 
-Those actions require approval under `WORKFLOW.md`.
+Those actions require approval under applicable repository instructions when present.

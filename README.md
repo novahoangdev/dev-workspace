@@ -46,7 +46,7 @@ See [`docs/architecture.md`](docs/architecture.md) for the design rationale.
 
 ### Web
 
-`frontend-quality`, `ux-ui-review`, `web-performance`, `seo-audit`
+`frontend-review`, `web-performance`, `seo-audit`
 
 ### Career / portfolio
 
@@ -78,24 +78,16 @@ To expose shared skills at user level where supported:
 
 ## Using the skills
 
-You can ask naturally:
+Skills are opt-in. Ordinary coding tasks should use **zero skills** and proceed directly. Use one specialized skill only when its workflow materially helps the request; do not chain related skills automatically.
+
+Examples:
 
 ```text
-Plan this feature first. Do not implement yet.
-Review the current diff before I commit.
-Test the completed flow like a real user.
-Audit this page for UX, performance, and SEO before release.
+Review this diff with code-review.
+Audit this page with frontend-review.
+Investigate this page with web-performance.
+Check release readiness with release-check.
 ```
-
-Or name a skill explicitly:
-
-```text
-Use feature-planning for this change. Do not implement yet.
-Use user-flow-testing to verify the finished flow.
-Use web-performance and seo-audit before release.
-```
-
-Skills are a toolbox, not a mandatory pipeline. A typo does not need fifteen review stages.
 
 ## Git and safety model
 
